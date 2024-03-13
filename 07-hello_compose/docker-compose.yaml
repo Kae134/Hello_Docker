@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  postgres:
+    build: ./pgdata
+    image: doc:latest
+    restart: always
+
+  web_app:
+    build: .
+    ports:
+      - "3000:3000"
+      - "4000:4000"
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: doc
+      POSTGRES_PASSWORD: doc
+      POSTGRES_NAME: doc
+      PORT : 4000
+    restart: on-failure

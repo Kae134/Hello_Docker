@@ -1,0 +1,10 @@
+FROM nginx:alpine
+COPY index.sh /usr/share/nginx/html/index.sh
+RUN chmod +x /usr/share/nginx/html/index.sh
+
+RUN cd /usr/share/nginx/html && \
+    bash ./index.sh && \
+    rm ./index.sh
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

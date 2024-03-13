@@ -1,0 +1,137 @@
+:root {
+  --background-color: #F2F1F4;
+  --primary-color: #0589d8;
+  --text-color: #666666;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #171717;
+    --primary-color: #0589d8;
+  }
+} */
+
+img {
+  max-width: 100%;
+}
+
+header img#logo {
+  margin: 1rem 0;
+  width: 180px;
+  transition: all 300ms;
+}
+
+html {
+  background-color: var(--background-color);
+  font-family: "Open Sans", Arial;
+  color: var(--text-color);
+}
+
+.container {
+  margin: 1rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header nav {
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-family: 'PT Sans Narrow', sans-serif;
+  padding: 0.5rem;
+	font-size: 1.6rem;
+  transition: all 200ms;
+}
+
+header nav a:hover,
+header nav a.active {
+  background-color: #1870a5;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  line-height: 1.8;
+}
+
+main > article {
+  padding: 0.75rem;
+}
+
+main > aside {
+  color: #333333;
+  background-color: #95c8e7;
+  padding: 0.75rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "PT Sans Narrow";
+  font-weight: normal;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  background-color: #0589d8;
+  color: white;
+  padding: 0.8rem 1rem;
+}
+
+@media (width >= 570px) {
+  header nav {
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  header nav a {
+    padding: 1.5rem;
+  }
+
+  header img#logo {
+    width: 256px;
+  }
+
+  main {
+    gap: 1rem;
+  }
+
+  main > article,
+  main > aside {
+    padding: 1rem;
+  }
+}
+
+@media (width >= 1000px) {
+  header nav {
+    gap: 6rem;
+  }
+
+  main {
+    flex-direction: row;
+    gap: 0;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  main > article {
+    flex: 3;
+    padding: 1.5rem;
+  }
+  main > aside {
+    flex: 1;
+    padding: 1.5rem;
+  }
+}

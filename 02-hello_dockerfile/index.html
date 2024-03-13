@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+.fade {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
+
+.star-wars {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 800px;
+  color: #feda4a;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+}
+
+.crawl {
+  position: relative;
+  top: 99999px;
+  transform-origin: 50% 100%;
+  animation: crawl 60s linear;
+}
+
+.crawl > .title {
+  font-size: 90%;
+  text-align: center;
+}
+
+.crawl > .title h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
+@keyframes crawl {
+	0% {
+    top: -100px;
+    transform: rotateX(20deg)  translateZ(0);
+  }
+	100% { 
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+</style>
+<body>
+    <div class="fade"></div>
+
+<section class="star-wars">
+  <div class="crawl">
+    <div class="title">
+      <p>Episode IV</p>
+      <h1>A New Hope</h1>
+      <p>Il n'y a pas si longtemps, disons aujourd'hui,
+         sur la planète Terre,</p>
+         <p> un groupe d'étudiants, toi y compris,
+             se distinguait. Capables de lire la doc, 
+                ils étaient aussi habiles à manier la souris
+                 et à comprendre Docker.</p>
+                 
+                 
+                 <p>Bravo ! Tu sais lancer un conteneur. Tu veux une médaille ? 
+        Allez, passe rapidement à l'exercice suivant.</p>
+    </div>
+    <audio src="./m.mp3"></audio>
+    
+    </p>
+  </div>
+</section>
+</body>
+<script>
+    var audio = document.getElementsByTagName("audio")[0];
+    audio.play();
+</script>
+</html>

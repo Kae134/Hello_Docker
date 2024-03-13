@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+      background-color: #000;
+}
+.wrapper {
+  height: 100vh;
+  /*This part is important for centering*/
+  display: grid;
+  place-items: center;
+}
+
+.typing-demo {
+  width: 36ch;
+  animation: typing 6s steps(36), blink .9s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+  color: #23ff00;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+</style>
+<body>
+  <div class="wrapper">
+    <div class="typing-demo">
+   Wake up, Neo... ChatGPT Has You...
+    </div>
+</div>
+</body>
+<script>
+    var audio = document.getElementsByTagName("audio")[0];
+    audio.play();
+</script>
+</html>

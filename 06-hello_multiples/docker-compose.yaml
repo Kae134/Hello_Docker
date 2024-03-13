@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  postgres:
+    image: bdd:latest
+
+  web_app:
+    image: node:latest
+    ports:
+      - "8080:3000"
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: superuser
+      DB_PASSWORD: mdp
+      DB_NAME: bdd
+    restart: on-failure
