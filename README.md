@@ -1,2 +1,2 @@
-# Hello Docker x Go
-Code simple afin de lier Go et docker
+# Hello Docker
+Des petits projets simple mélant docker et des languages
