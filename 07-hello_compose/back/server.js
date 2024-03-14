@@ -1,33 +1,18 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
+const pg = require('pg');
 
-
-
-const { Pool } = require('pg');
-
-const pgPool = new Pool({
-  user: process.env.POSTGRES_USER || 'doc',
-  host: process.env.POSTGRES_HOST || 'localhost',
-  database: process.env.POSTGRES_DB || 'doc',
-  password: process.env.POSTGRES_PASSWORD || 'doc',
-  port: process.env.POSTGRES_PORT || 5432 ,
-});
-
-
-const indexPath = path.resolve(__dirname, 'index.html');
-
-
-pgPool.connect()
-.then(() => {
-  console.log('Connected to the database');
-})
-.catch(err => {
-  console.error('Error connecting to the database:', err.message);
-  process.exit(1); // Exit the application if unable to connect
+// Configuration de la connexion à PostgreSQL
+const pgPool = new pg.Pool({
+  user: process.env.POSTGRES_USER,
+  host: process.env.POSTGRES_HOST,
+  database: process.env.POSTGRES_DB,
+  password: process.env.POSTGRES_PASSWORD,
+  port: process.env.POSTGRES_PORT,
 });
 
 const app = express();
+
 
 app.use(express.json());
 app.use(cors());
@@ -59,20 +44,7 @@ app.post('/tasks', async (req, res) => {
   }
 });
 
-
-console.log(path)
-console.log(indexPath)
-
-app.get('/', (req, res) => {
-  res.sendFile(indexPath);
-});
-
-
-console.log("oui")
-console.log(process.env.PORT)
-console.log(process.env.POSTGRES_USER)
-
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

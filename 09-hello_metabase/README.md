@@ -10,4 +10,3 @@ Consulte la documentation 📖 pour plus d'informations : [Metabase Documentatio
 
 ## 📝 Rendu Attendu
 un Screenshot de Metabase
-

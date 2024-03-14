@@ -1,26 +1,15 @@
 const express = require('express');
-const PORT = 3000;
-const HOST = "0.0.0.0";
-
 const { Pool } = require('pg');
 const pool = new Pool({
-  user: process.env.DB_USER || 'superuser',
-  host: process.env.DB_HOST || 'bdd',
-  database: process.env.DB_NAME || 'db',
-  password: process.env.DB_PASSWORD || 'mdp',
-  port: process.env.DB_PORT || 5432,
+  user: 'db',
+  host: 'localhost',
+  database: 'db',
+  password: 'db',
+  port: 5432,
 });
-
-pool.connect()
-.then(() => {
-  console.log('Connected to the database');
-})
-.catch(err => {
-  console.error('Error connecting to the database:', err.message);
-  process.exit(1); // Exit the application if unable to connect
-});
-
 const app = express();
+
+const PORT = 3000;
 
 app.use(express.json());
 

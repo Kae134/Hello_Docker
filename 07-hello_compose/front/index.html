@@ -21,7 +21,6 @@
             <template x-for="task in tasks" :key="task.id">
                 <li x-text="task.description" class="p-2 border-b"></li>
             </template>
-            <p>qsdhl</p>
         </ul>
     </div>
 
@@ -31,14 +30,14 @@
             newTask: '',
             tasks: [],
             fetchTasks() {
-                fetch('http://localhost:4000/tasks')
+                fetch('http://localhost:3021/tasks')
                     .then(response => response.json())
                     .then(data => {
                         this.tasks = data;
                     });
             },
             addTask() {
-                fetch('http://localhost:4000/tasks', {
+                fetch('http://localhost:3021/tasks', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ description: this.newTask })
